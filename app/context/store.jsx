@@ -8,12 +8,13 @@ export const StoreContext = createContext({});
 
 export const StoreProvider = (props) => {
     const [cartState, cartDispatch] = useReducer(cartReducer, { cart: [] });
-    const [productsState, productsDispatch] = useReducer(productsReducer, { products: [] });
+    const [productsState, productsDispatch] = useReducer(productsReducer, { products: [], loading: false });
 
     return (
         <StoreContext.Provider value={{
             cart: cartState.cart,
             products: productsState.products,
+            loading: productsState.loading,
             addToCart: addToCart(cartDispatch),
             getProducts: getProducts(productsDispatch)
         }}>

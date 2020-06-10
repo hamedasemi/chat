@@ -5,7 +5,7 @@ export const getProducts = (dispatch) => () => {
         .then(data => {
             setTimeout(() => {
                 return dispatch(getProductsSuccess(data.data))
-            }, 200);
+            }, 1000);
         }).catch(error => {
             dispatch(getProductsError(error));
         });

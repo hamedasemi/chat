@@ -1,7 +1,9 @@
 export const productsReducer = (state, action) => {
     switch (action.type) {
         case 'GET_PRODUCTS_SUCCESS':
-            return { ...state, products: [...action.data] }
+            return { ...state, products: [...action.data], loading: false }
+        case 'GET_PRODUCTS_LOADING':
+            return { ...state, loading: true }
         default:
             return state
     }

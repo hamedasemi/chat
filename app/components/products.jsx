@@ -2,13 +2,13 @@ import React, { useContext, useEffect } from 'react';
 import { StoreContext } from '../context/store';
 
 const Products = () => {
-    const { products, addToCart, getProducts } = useContext(StoreContext);
+    const { products, addToCart, getProducts, loading } = useContext(StoreContext);
     useEffect(() => {
         getProducts();
     }, []);
     return (
         <div>
-            {products.map((product) => {
+            {loading ? 'Loading...' : products.map((product) => {
                 return <div key={product.id}>{product.name}<button onClick={() => { addToCart(product) }}>Add to cart</button></div>
             })}
         </div>
