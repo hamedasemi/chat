@@ -9,7 +9,7 @@ const Cart = () => {
             {cart.map((item) => {
                 return <div key={item.id}>{item.name}</div>
             })}
-        </div >
+        </div>
     );
 }
 
