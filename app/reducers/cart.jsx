@@ -11,6 +11,20 @@ export const cartReducer = (state, action) => {
             } else {
                 return { ...state, cart: [...state.cart, { ...action.product, quantity: 1 }] }
             }
+        case 'REMOVE_FROM_CART':
+            state.cart.map((product) => {
+                if (product.id === action.productId) {
+                    if (product.quantity > 1) {
+                        product.quantity--;
+                    }
+                    else {
+                        state.cart = state.cart.filter((product)=>{
+                            return product.id !== action.productId
+                        })
+                    }
+                }
+            })
+            return { ...state }
         default:
             return state
     }

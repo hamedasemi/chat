@@ -4,3 +4,10 @@ export const addToCart = (dispatch) => (product) => {
         product: product
     })
 }
+
+export const removeFromCart = (dispatch) => (productId) => {
+    dispatch({
+        type: 'REMOVE_FROM_CART',
+        productId: productId
+    })
+}

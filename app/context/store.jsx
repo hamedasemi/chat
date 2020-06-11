@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 import { cartReducer } from '../reducers/cart'
 import { productsReducer } from '../reducers/products'
-import { addToCart } from '../actions/cart';
+import { addToCart, removeFromCart } from '../actions/cart';
 import { getProducts } from '../actions/products';
 
 export const StoreContext = createContext({});
@@ -16,6 +16,7 @@ export const StoreProvider = (props) => {
             products: productsState.products,
             loading: productsState.loading,
             addToCart: addToCart(cartDispatch),
+            removeFromCart: removeFromCart(cartDispatch),
             getProducts: getProducts(productsDispatch)
         }}>
             {props.children}

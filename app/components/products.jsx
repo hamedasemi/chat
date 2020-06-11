@@ -3,9 +3,11 @@ import { StoreContext } from '../context/store';
 
 const Products = () => {
     const { products, addToCart, getProducts, loading } = useContext(StoreContext);
+
     useEffect(() => {
         getProducts();
     }, []);
+
     return (
         <div>
             {loading ? 'Loading...' : products.map((product) => {
