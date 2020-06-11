@@ -11,9 +11,10 @@ import { searchReducer } from './reducers/search';
 export const StoreContext = createContext();
 
 export const Store = (props) => {
+
     const [cartState, cartDispatch] = useReducer(cartReducer, { cart: [] });
     const [productsState, productsDispatch] = useReducer(productsReducer, { products: [], loading: false });
-    const [searchState, searchDispatch] = useReducer(searchReducer, { term: undefined, sort: undefined });
+    const [searchState, searchDispatch] = useReducer(searchReducer, { term: '', sort: '' });
 
     const value = {
         cart: cartState.cart,
