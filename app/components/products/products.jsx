@@ -5,7 +5,7 @@ import { StoreContext } from '../store/store';
 import Product from '../product/product';
 
 const Products = () => {
-    const { products, getProducts, loading } = useContext(StoreContext);
+    const { getProducts, filteredProducts, loading } = useContext(StoreContext);
 
     useEffect(() => {
         getProducts();
@@ -16,7 +16,7 @@ const Products = () => {
             <div>PRODUCTS:</div>
             <br/>
             <div>
-                {loading ? 'Loading...' : products.map((product) => {
+                {loading ? 'Loading...' : filteredProducts.map((product) => {
                     return <Product key={product.id} product={product}></Product>
                 })}
             </div>

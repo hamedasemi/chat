@@ -5,7 +5,7 @@ import { StoreContext } from '../store/store';
 
 
 const Search = () => {
-    const { term, sort, searchTerm, searchSort, products } = useContext(StoreContext);
+    const { term, sort, searchTerm, searchSort, products, filter } = useContext(StoreContext);
 
     const searchTermChangeHandler = (event) => {
         searchTerm(event.target.value);
@@ -16,7 +16,7 @@ const Search = () => {
     }
 
     useEffect(() => {
-        console.log('sort or term changed');
+        filter(sort, products);
     }, [term, sort, products]);
 
     return (

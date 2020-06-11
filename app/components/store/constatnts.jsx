@@ -8,3 +8,5 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
 export const SEARCH_TERM = 'SEARCH_TERM';
 export const SEARCH_SORT = 'SEARCH_SORT';
+
+export const FILTER = 'FILTER';
