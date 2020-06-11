@@ -1,8 +1,10 @@
 import React, { createContext, useReducer } from 'react';
-import { cartReducer } from './reducers/cart'
-import { productsReducer } from './reducers/products'
+
 import { addToCart, removeFromCart } from './actions/cart';
 import { getProducts } from './actions/products';
+
+import { cartReducer } from './reducers/cart'
+import { productsReducer } from './reducers/products'
 
 export const StoreContext = createContext();
 

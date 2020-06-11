@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from 'react';
+
 import { StoreContext } from '../store/store';
+
 import Product from '../product/product';
 
 const Products = () => {
