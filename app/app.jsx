@@ -4,13 +4,15 @@ import ReactDOM from 'react-dom';
 import { Store } from './components/store/store';
 import Products from './components/products/products';
 import Cart from './components/cart/cart';
+import Search from './components/search/search';
 
 const App = () => {
 
     return (
         <Store>
-            <Cart></Cart>
+            <Search></Search>
             <Products></Products>
+            <Cart></Cart>
         </Store>
     )
 }

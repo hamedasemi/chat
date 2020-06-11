@@ -7,13 +7,15 @@ const Cart = () => {
 
     return (
         <div>
-            {cart.map((item) => {
+            <div>CART:</div>
+            <br/>
+            {cart.length ? cart.map((item) => {
                 return <div key={item.id}>
-                    {item.name} {item.quantity}
+                    {item.name} {item.price} {item.quantity}
                     <button onClick={() => { removeFromCart(item.id) }}>-</button>
                     <button onClick={() => { addToCart(item) }}>+</button>
                 </div>
-            })}
+            }) : 'The cart is empty.'}
         </div>
     );
 }

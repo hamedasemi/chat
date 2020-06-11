@@ -2,19 +2,23 @@
     "data": [
         {
             "id": "1",
-            "name": "Book"
+            "name": "Book",
+            "price": 199
         },
         {
             "id": "2",
-            "name": "T-shirt"
+            "name": "T-shirt",
+            "price": 295
         },
         {
             "id": "3",
-            "name": "Jeans"
+            "name": "Jeans",
+            "price": 345
         },
         {
             "id": "4",
-            "name": "Watch"
+            "name": "Watch",
+            "price": 399
         }
     ]
 }

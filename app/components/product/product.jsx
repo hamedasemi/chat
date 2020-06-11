@@ -6,7 +6,7 @@ const Product = (props) => {
     const { addToCart } = useContext(StoreContext);
 
     return (
-        <div>{props.product.name}<button onClick={() => { addToCart(props.product) }}>Add to cart</button></div>
+        <div>{props.product.name} {props.product.price}<button onClick={() => { addToCart(props.product) }}>Add to cart</button></div>
     );
 }
 
