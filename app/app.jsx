@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { StoreProvider } from './context/store'
-import Products from './components/products'
-import Cart from './components/cart'
+
+import { Store } from './components/store/store';
+import Products from './components/products/products';
+import Cart from './components/cart/cart';
 
 const App = () => {
 
     return (
-        <StoreProvider>
+        <Store>
             <Cart></Cart>
             <Products></Products>
-        </StoreProvider>
+        </Store>
     )
 }
 

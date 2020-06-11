@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import { StoreContext } from '../context/store';
+import { StoreContext } from '../store/store';
+import Product from '../product/product';
 
 const Products = () => {
-    const { products, addToCart, getProducts, loading } = useContext(StoreContext);
+    const { products, getProducts, loading } = useContext(StoreContext);
 
     useEffect(() => {
         getProducts();
@@ -11,7 +12,7 @@ const Products = () => {
     return (
         <div>
             {loading ? 'Loading...' : products.map((product) => {
-                return <div key={product.id}>{product.name}<button onClick={() => { addToCart(product) }}>Add to cart</button></div>
+                return <Product key={product.id} product={product}></Product>
             })}
         </div>
     );

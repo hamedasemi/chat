@@ -1,3 +1,5 @@
+import { GET_PRODUCTS_LOADING, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR } from '../constatnts';
+
 export const getProducts = (dispatch) => () => {
     dispatch(getProductsLoading());
     return fetch('assets/data/products.json')
@@ -13,20 +15,20 @@ export const getProducts = (dispatch) => () => {
 
 export const getProductsLoading = () => {
     return {
-        type: 'GET_PRODUCTS_LOADING'
+        type: GET_PRODUCTS_LOADING
     }
 }
 
 export const getProductsSuccess = (data) => {
     return {
-        type: 'GET_PRODUCTS_SUCCESS',
+        type: GET_PRODUCTS_SUCCESS,
         data: data
     }
 }
 
 export const getProductsError = (error) => {
     return {
-        type: 'GET_PRODUCTS_ERROR',
+        type: GET_PRODUCTS_ERROR,
         error: error
     }
 }
