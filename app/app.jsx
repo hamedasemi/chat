@@ -3,22 +3,30 @@ import ReactDOM from 'react-dom';
 
 import style from './app.css'
 
-import { Store } from './components/store/store';
-import Products from './components/products/products';
-import Cart from './components/cart/cart';
-import Search from './components/search/search';
+import { Messenger } from './components/messenger/messenger';
+import Messages from './components/messages/messages';
+import Input from './components/input/input';
+
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:3000');
+
+socket.on('connect', () => {
+    console.log('connected')
+    socket.emit('msg', { name: "text" });
+});
 
 const App = () => {
 
     return (
         <div className={style.app}>
-            <Store>
-                <Search></Search>
-                <Products></Products>
-                <Cart></Cart>
-            </Store>
+            <Messenger>
+                <Messages></Messages>
+                <Input></Input>
+            </Messenger>
         </div>
     )
 }
 
 ReactDOM.render(<App></App>, document.getElementById('root'));
+
