@@ -6,12 +6,14 @@ const Input = () => {
     const { createMessage, message } = useContext(MessengerContext);
 
     const changeHandler = (event) => {
-        createMessage(event.target.value);
+        createMessage({
+            message: event.target.value
+        })
     }
 
     return (
         <div>
-            <input type="text" value={message} onChange={changeHandler} />
+            <input type="text" value={message.message} onChange={changeHandler} />
         </div>
 
     );

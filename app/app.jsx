@@ -8,15 +8,6 @@ import Messages from './components/messages/messages';
 import Input from './components/input/input';
 import Send from './components/send/send';
 
-import io from 'socket.io-client';
-
-const socket = io('http://localhost:3000');
-
-socket.on('connect', () => {
-    console.log('connected')
-    socket.emit('msg', { name: "text" });
-});
-
 const App = () => {
 
     return (

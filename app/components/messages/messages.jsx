@@ -3,18 +3,13 @@ import React, { useContext } from 'react';
 import { MessengerContext } from '../messenger/messenger';
 
 const Messages = () => {
-    const { sentMessages, receivedMessages } = useContext(MessengerContext);
-    
+    const { messages } = useContext(MessengerContext);
+
     return (
         <div>
             <div>
-                {sentMessages.map((sentMessage, index) => {
-                    return <div key={index}>{sentMessage}</div>;
-                })}
-            </div>
-            <div>
-                {receivedMessages.map((receivedMessage, index) => {
-                    return <div key={index}>{receivedMessage}</div>;
+                {messages.map((message) => {
+                    return <div key={message.id}>{message.message} {message.date} {message.time}</div>;
                 })}
             </div>
         </div>
