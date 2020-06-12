@@ -17,7 +17,8 @@ function makeid(length) {
 export const sendMessage = (dispatch) => (payload) => {
 
     payload = {
-        ...payload, id: makeid(10),
+        ...payload,
+        id: makeid(10),
         date: new Date().toDateString(),
         time: new Date().toTimeString()
     }
