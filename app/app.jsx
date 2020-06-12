@@ -6,6 +6,7 @@ import style from './app.css'
 import { Messenger } from './components/messenger/messenger';
 import Messages from './components/messages/messages';
 import Input from './components/input/input';
+import Send from './components/send/send';
 
 import io from 'socket.io-client';
 
@@ -23,6 +24,7 @@ const App = () => {
             <Messenger>
                 <Messages></Messages>
                 <Input></Input>
+                <Send></Send>
             </Messenger>
         </div>
     )
