@@ -2,8 +2,6 @@ import React, { useContext, useEffect } from 'react';
 
 import { StoreContext } from '../store/store';
 
-
-
 const Search = () => {
     const { term, sort, searchTerm, searchSort, products, filter } = useContext(StoreContext);
 
