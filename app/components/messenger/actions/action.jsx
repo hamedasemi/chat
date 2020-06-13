@@ -1,7 +1,6 @@
 import io from 'socket.io-client';
 
-import { SEND_MESSAGE, RECEIVE_MESSAGE, CREATE_MESSAGE } from '../constatnts';
-
+import { CREATE_NAME, SET_NAME, SEND_MESSAGE, RECEIVE_MESSAGE, CREATE_MESSAGE } from '../constatnts';
 
 const socket = io('http://localhost:3000', {
     transportOptions: {
@@ -13,11 +12,22 @@ const socket = io('http://localhost:3000', {
     }
 });
 
-
-
-
 const id = () => {
     return btoa(new Date().valueOf() + Math.random().toString(36).substr(2, 10));
+}
+
+export const createName = (dispatch) => (payload) => {
+    dispatch({
+        type: CREATE_NAME,
+        payload: payload
+    })
+}
+
+export const setName = (dispatch) => (payload) => {
+    dispatch({
+        type: SET_NAME,
+        payload: payload
+    })
 }
 
 export const sendMessage = (dispatch) => (payload) => {
@@ -27,16 +37,18 @@ export const sendMessage = (dispatch) => (payload) => {
             id: id(),
             date: new Date().toDateString(),
             time: new Date().toTimeString()
-        }
-
+        };
         socket.emit('message', payload, (callbackPayload) => {
+            // createMessage(dispatch)({ message: '' })
+            dispatch({
+                type: CREATE_MESSAGE,
+                payload: { message: '' }
+            })
             dispatch({
                 type: SEND_MESSAGE,
                 payload: callbackPayload
             })
         });
-
-        
     }
 }
 

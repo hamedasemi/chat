@@ -1,7 +1,11 @@
-import { SEND_MESSAGE, RECEIVE_MESSAGE, CREATE_MESSAGE } from '../constatnts';
+import { SET_NAME, CREATE_NAME, SEND_MESSAGE, RECEIVE_MESSAGE, CREATE_MESSAGE } from '../constatnts';
 
-export const messageReducer = (state, action) => {
+export const reducer = (state, action) => {
     switch (action.type) {
+        case SET_NAME:
+            return { ...state, name: action.payload }
+        case CREATE_NAME:
+            return { ...state, name: action.payload }
         case SEND_MESSAGE:
             return { ...state, messages: [...state.messages, action.payload] }
         case RECEIVE_MESSAGE:

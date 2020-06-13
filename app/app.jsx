@@ -7,11 +7,13 @@ import { Messenger } from './components/messenger/messenger';
 import Messages from './components/messages/messages';
 import Input from './components/input/input';
 import Send from './components/send/send';
+import Name from './components/name/name';
 
 const App = () => {
     return (
         <div className={style.app}>
             <Messenger>
+                <Name></Name>
                 <Messages></Messages>
                 <Input></Input>
                 <Send></Send>

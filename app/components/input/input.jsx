@@ -13,7 +13,7 @@ const Input = () => {
 
     return (
         <div>
-            <input type="text" value={message.message} onChange={changeHandler} />
+            <textarea name="" id="" cols="30" rows="10" placeholder="Message" value={message.message} onChange={changeHandler} ></textarea>
         </div>
 
     );
