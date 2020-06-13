@@ -10,10 +10,13 @@ const Send = () => {
     const clickHandler = () => {
         sendMessage(message);
     }
-    
+
     return (
         <div>
-            <button onClick={clickHandler}><span className={sendingMessage ? styles.sending : ''}>Send</span><span className={sendingMessage ? '' : styles.sending}>Sending</span></button>
+            <button onClick={clickHandler}>
+                <span className={sendingMessage ? styles.sending : ''}>Send</span>
+                <span className={sendingMessage ? '' : styles.sending}>Sending</span>
+            </button>
         </div>
 
     );
