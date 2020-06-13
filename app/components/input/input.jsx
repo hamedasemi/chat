@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { MessengerContext } from '../messenger/messenger';
+import MessengerContext from '../messenger/context';
 
 const Input = () => {
     const { createMessage, message } = useContext(MessengerContext);

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import style from './app.css'
 
-import { Messenger } from './components/messenger/messenger';
+import Messenger from './components/messenger/messenger';
 import Messages from './components/messages/messages';
 import Input from './components/input/input';
 import Send from './components/send/send';

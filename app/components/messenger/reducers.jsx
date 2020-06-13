@@ -1,4 +1,4 @@
-import { SET_NAME, CREATE_NAME, SEND_MESSAGE, RECEIVE_MESSAGE, CREATE_MESSAGE } from '../constatnts';
+import { SET_NAME, CREATE_NAME, SEND_MESSAGE, RECEIVE_MESSAGE, CREATE_MESSAGE } from './constants';
 
 export const reducer = (state, action) => {
     switch (action.type) {

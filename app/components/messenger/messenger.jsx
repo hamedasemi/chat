@@ -1,14 +1,14 @@
-import React, { createContext, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
-import { sendMessage, receiveMessage, createMessage, createName, setName } from './actions/action';
+import { sendMessage, receiveMessage, createMessage, createName, setName } from './actions';
 
-import { reducer } from './reducers/reducer';
+import { reducer } from './reducers';
 
-export const MessengerContext = createContext();
+import MessengerContext from './context';
 
 export const Messenger = (props) => {
     const [state, dispatch] = useReducer(reducer, { name: '', messages: [], message: { message: '', id: null, date: null, time: null } });
-    
+
     const value = {
         name: state.name,
         message: state.message,
@@ -26,3 +26,5 @@ export const Messenger = (props) => {
         </MessengerContext.Provider>
     );
 }
+
+export default Messenger;

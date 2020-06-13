@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 
-import { CREATE_NAME, SET_NAME, SEND_MESSAGE, RECEIVE_MESSAGE, CREATE_MESSAGE } from '../constatnts';
+import { CREATE_NAME, SET_NAME, SEND_MESSAGE, RECEIVE_MESSAGE, CREATE_MESSAGE } from './constants';
 
 const socket = io('http://localhost:3000', {
     transportOptions: {
