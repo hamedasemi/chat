@@ -1,9 +1,7 @@
 import React, { useReducer } from 'react';
 
 import { sendMessage, receiveMessage, createMessage, createName, setName } from './actions';
-
-import { reducer } from './reducers';
-
+import { reducer } from './reducer';
 import MessengerContext from './context';
 
 export const Messenger = (props) => {
