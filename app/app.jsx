@@ -9,7 +9,6 @@ import Input from './components/input/input';
 import Send from './components/send/send';
 
 const App = () => {
-
     return (
         <div className={style.app}>
             <Messenger>
@@ -22,4 +21,3 @@ const App = () => {
 }
 
 ReactDOM.render(<App></App>, document.getElementById('root'));
-

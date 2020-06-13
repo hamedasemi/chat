@@ -2,33 +2,42 @@ import io from 'socket.io-client';
 
 import { SEND_MESSAGE, RECEIVE_MESSAGE, CREATE_MESSAGE } from '../constatnts';
 
-const socket = io('http://localhost:3000');
 
-function makeid(length) {
-    var result = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+const socket = io('http://localhost:3000', {
+    transportOptions: {
+        polling: {
+            extraHeaders: {
+                'Authorization': 'abcd'
+            }
+        }
     }
-    return result;
+});
+
+
+
+
+const id = () => {
+    return btoa(new Date().valueOf() + Math.random().toString(36).substr(2, 10));
 }
 
 export const sendMessage = (dispatch) => (payload) => {
+    if (payload.message) {
+        payload = {
+            ...payload,
+            id: id(),
+            date: new Date().toDateString(),
+            time: new Date().toTimeString()
+        }
 
-    payload = {
-        ...payload,
-        id: makeid(10),
-        date: new Date().toDateString(),
-        time: new Date().toTimeString()
+        socket.emit('message', payload, (callbackPayload) => {
+            dispatch({
+                type: SEND_MESSAGE,
+                payload: callbackPayload
+            })
+        });
+
+        
     }
-
-    socket.emit('message', payload);
-
-    dispatch({
-        type: SEND_MESSAGE,
-        payload: payload
-    })
 }
 
 export const receiveMessage = (dispatch) => (payload) => {
