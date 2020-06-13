@@ -1,6 +1,14 @@
 import io from 'socket.io-client';
 
-import { CREATE_NAME, SET_NAME, SEND_MESSAGE, RECEIVE_MESSAGE, CREATE_MESSAGE } from './constants';
+import {
+    CREATE_NAME,
+    SET_NAME,
+    SEND_MESSAGE,
+    RECEIVE_MESSAGE,
+    CREATE_MESSAGE,
+    SET_SENDING_MESSAGE,
+    UNSET_SENDING_MESSAGE
+} from './constants';
 
 const socket = io('http://localhost:3000', {
     transportOptions: {
@@ -30,8 +38,23 @@ export const setName = (dispatch) => (payload) => {
     })
 }
 
+export const setSendingMessage = (dispatch) => () => {
+    dispatch({
+        type: SET_SENDING_MESSAGE
+    })
+}
+
+export const unsetSendingMessage = (dispatch) => () => {
+    dispatch({
+        type: UNSET_SENDING_MESSAGE
+    })
+}
+
 export const sendMessage = (dispatch) => (payload) => {
     if (payload.message) {
+        dispatch({
+            type: SET_SENDING_MESSAGE
+        })
         payload = {
             ...payload,
             id: id(),
@@ -39,7 +62,6 @@ export const sendMessage = (dispatch) => (payload) => {
             time: new Date().toTimeString()
         };
         socket.emit('message', payload, (callbackPayload) => {
-            // createMessage(dispatch)({ message: '' })
             dispatch({
                 type: CREATE_MESSAGE,
                 payload: { message: '' }
@@ -47,6 +69,9 @@ export const sendMessage = (dispatch) => (payload) => {
             dispatch({
                 type: SEND_MESSAGE,
                 payload: callbackPayload
+            })
+            dispatch({
+                type: UNSET_SENDING_MESSAGE
             })
         });
     }

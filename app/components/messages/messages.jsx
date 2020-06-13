@@ -9,7 +9,6 @@ const Messages = () => {
         <div>
             <div style={{ whiteSpace: "pre" }}>
                 {messages.map((message) => {
-                    console.log(message.message)
                     return <div key={message.id}>{message.message} {message.date} {message.time}</div>;
                 })}
             </div>
