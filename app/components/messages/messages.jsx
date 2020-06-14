@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
 
+import styles from './messages.css';
+
 import MessengerContext from '../messenger/context';
 
 const Messages = () => {
-    const { messages } = useContext(MessengerContext);
+    const { messages, name } = useContext(MessengerContext);
 
     return (
-        <div>
-            <div style={{ whiteSpace: "pre" }}>
+        <div className={name ? styles.messages : styles.messagesNone}>
+            <div>
                 {messages.map((message) => {
-                    return <div key={message.id}>{message.message} {message.date} {message.time}</div>;
+                    return <div key={message.id}><b>{message.name}: </b>{message.message} {message.date} {message.time}</div>;
                 })}
             </div>
         </div>

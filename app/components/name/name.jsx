@@ -1,24 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+
+import styles from './name.css';
 
 import MessengerContext from '../messenger/context';
 
 const Name = () => {
-    const { createName, name, setName } = useContext(MessengerContext);
+    const [localName, setLocalName] = useState('');
+    const { setName, name } = useContext(MessengerContext);
 
-    const changeHandler = (event) => {
-        createName(event.target.value);
+    const changeHandler = ({ target: { value } }) => {
+        setLocalName(value);
     }
-    
+
     const clickHandler = () => {
-        setName(name);
+        setName(localName);
+        setLocalName('');
     }
 
     return (
-        <div>
-            <input type="text" placeholder="Name" value={name} onChange={changeHandler}/>
+        <div className={name ? styles.nameNone : styles.name}>
+            <input type="text" placeholder="Pick a name" value={localName} onChange={changeHandler} />
             <button onClick={clickHandler}>SET</button>
         </div>
-
     );
 }
 

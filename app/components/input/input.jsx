@@ -1,19 +1,22 @@
 import React, { useContext } from 'react';
 
+import styles from './input.css';
+
 import MessengerContext from '../messenger/context';
 
 const Input = () => {
-    const { createMessage, message } = useContext(MessengerContext);
+    const { createMessage, message, name } = useContext(MessengerContext);
 
     const changeHandler = (event) => {
         createMessage({
-            message: event.target.value
+            message: event.target.value,
+            name: name
         })
     }
 
     return (
-        <div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Message" value={message.message} onChange={changeHandler} ></textarea>
+        <div className={name ? styles.input : styles.inputNone}>
+            <input placeholder="Message" value={message.message} onChange={changeHandler} />
         </div>
 
     );

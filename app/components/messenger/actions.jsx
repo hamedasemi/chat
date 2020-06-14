@@ -3,7 +3,6 @@ import io from 'socket.io-client';
 import {
     CREATE_NAME,
     SET_NAME,
-    SEND_MESSAGE,
     RECEIVE_MESSAGE,
     CREATE_MESSAGE,
     SET_SENDING_MESSAGE,
@@ -19,6 +18,7 @@ const socket = io('http://localhost:3000', {
         }
     }
 });
+
 
 const id = () => {
     return btoa(new Date().valueOf() + Math.random().toString(36).substr(2, 10));
@@ -50,38 +50,33 @@ export const unsetSendingMessage = (dispatch) => () => {
     })
 }
 
+
 export const sendMessage = (dispatch) => (payload) => {
     if (payload.message) {
-        dispatch({
-            type: SET_SENDING_MESSAGE
-        })
-        payload = {
+        // dispatch({
+        //     type: SET_SENDING_MESSAGE
+        // })
+        let newpayload = {
             ...payload,
             id: id(),
             date: new Date().toDateString(),
             time: new Date().toTimeString()
         };
-        socket.emit('message', payload, (callbackPayload) => {
-            dispatch({
-                type: CREATE_MESSAGE,
-                payload: { message: '' }
-            })
-            dispatch({
-                type: SEND_MESSAGE,
-                payload: callbackPayload
-            })
-            dispatch({
-                type: UNSET_SENDING_MESSAGE
-            })
-        });
+
+        socket.emit('send-message', newpayload);
     }
 }
 
 export const receiveMessage = (dispatch) => (payload) => {
-    dispatch({
-        type: RECEIVE_MESSAGE,
-        payload: payload
-    })
+    console.log('receiveMessage')        
+    socket.on('receive-message', (cbpayload) => {
+        console.log('onreceiveMessage')        
+        
+        dispatch({
+            type: RECEIVE_MESSAGE,
+            payload: cbpayload
+        })
+    });
 }
 
 export const createMessage = (dispatch) => (payload) => {
