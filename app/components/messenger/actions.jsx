@@ -89,17 +89,15 @@ export const sendMessage = (dispatch) => (payload) => {
                 type: CREATE_MESSAGE,
                 payload: { message: '' }
             })
+            dispatch({
+                type: UNSET_SENDING_MESSAGE
+            })
         });
     }
 }
 
 export const receiveMessage = (dispatch) => () => {
-    console.log('receiveMessage')
     socket.on('receive-message', (cbpayload) => {
-        console.log('onreceiveMessage')
-        dispatch({
-            type: UNSET_SENDING_MESSAGE
-        })
         dispatch({
             type: RECEIVE_MESSAGE,
             payload: cbpayload
