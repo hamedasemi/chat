@@ -3,6 +3,7 @@ import path from 'path';
 import webpack from 'webpack';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 export default {
     entry: {
@@ -54,6 +55,15 @@ export default {
             chunks: ['app'],
             filename: 'index.html',
             template: 'index.html'
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'assets', to: 'assets', globOptions: {
+                        ignore: ['**/.DS_Store'],
+                    },
+                }
+            ],
         }),
     ],
     devServer: {

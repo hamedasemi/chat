@@ -6,7 +6,7 @@
         "firebase": "firebase",
         "webpack": "webpack",
         "webpack-dev-server": "webpack-dev-server",
-        "start": "webpack-dev-server --mode development",
+        "start": "webpack-dev-server --mode development --hot",
         "build": "webpack --mode production"
     },
     "devDependencies": {
@@ -16,6 +16,7 @@
         "@babel/preset-react": "^7.9.4",
         "@babel/register": "^7.10.1",
         "babel-loader": "^8.1.0",
+        "copy-webpack-plugin": "^6.0.2",
         "css-loader": "^3.5.3",
         "eslint": "^7.2.0",
         "eslint-plugin-react": "^7.20.0",
