@@ -9,7 +9,21 @@ import {
     UNSET_SENDING_MESSAGE
 } from './constants';
 
-const socket = io('http://localhost:3000', {
+let serverPath;
+
+switch (window.location.port) {
+    case '8080':
+        serverPath = 'http://localhost:3000';
+        break;
+    case '':
+        serverPath = 'https://hamed-chat-api.appspot.com'
+        break;
+    default:
+        serverPath = '?????????';
+        break;
+}
+
+const socket = io(serverPath, {
     transportOptions: {
         polling: {
             extraHeaders: {
@@ -51,7 +65,7 @@ export const unsetSendingMessage = (dispatch) => () => {
 }
 
 
-export const sendMessage = (dispatch) => (payload) => {
+export const sendMessage = () => (payload) => {
     if (payload.message) {
         // dispatch({
         //     type: SET_SENDING_MESSAGE
@@ -67,11 +81,11 @@ export const sendMessage = (dispatch) => (payload) => {
     }
 }
 
-export const receiveMessage = (dispatch) => (payload) => {
-    console.log('receiveMessage')        
+export const receiveMessage = (dispatch) => () => {
+    console.log('receiveMessage')
     socket.on('receive-message', (cbpayload) => {
-        console.log('onreceiveMessage')        
-        
+        console.log('onreceiveMessage')
+
         dispatch({
             type: RECEIVE_MESSAGE,
             payload: cbpayload
