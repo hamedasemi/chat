@@ -1,6 +1,4 @@
-import path from 'path';
-
-import webpack from 'webpack';
+import { resolve } from 'path';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
@@ -10,14 +8,19 @@ export default {
         app: './app/app.jsx'
     },
     output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: '[chunkhash].js',
-        chunkFilename: '[chunkhash].js'
+        path: resolve(__dirname, 'build'),
+        filename: '[hash].js'
     },
     resolve: {
         extensions: ['.js', '.jsx', '.css']
     },
-    devtool: '#eval-source-map',
+    optimization: {
+        splitChunks: {
+            minSize: 30000,
+            maxSize: 50000
+        }
+    },
+    // devtool: '#eval-source-map',
     module: {
         rules: [
             {
@@ -45,11 +48,6 @@ export default {
         ]
     },
     plugins: [
-        // @ts-ignore
-        new webpack.optimize.AggressiveSplittingPlugin({
-            minSize: 30000,
-            maxSize: 50000
-        }),
         new HtmlWebpackPlugin({
             base: '/',
             chunks: ['app'],
