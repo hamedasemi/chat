@@ -5,7 +5,7 @@ import styles from './input.css';
 import MessengerContext from '../messenger/context';
 
 const Input = () => {
-    const { createMessage, message, person } = useContext(MessengerContext);
+    const { createMessage, message, person, sendMessage } = useContext(MessengerContext);
 
     const changeHandler = (event) => {
         createMessage({
@@ -14,9 +14,15 @@ const Input = () => {
         })
     }
 
+    const keyPressHandler = (event) => {
+        if (event.which === 13) {
+            sendMessage(message);
+        }
+    }
+
     return (
         <div className={person.name ? styles.input : styles.inputNone}>
-            <input placeholder="Message" value={message.message} onChange={changeHandler} />
+            <input placeholder="Message" value={message.message} onChange={changeHandler} onKeyPress={keyPressHandler} />
         </div>
 
     );

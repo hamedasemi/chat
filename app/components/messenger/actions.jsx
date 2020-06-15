@@ -73,19 +73,23 @@ export const unsetSendingMessage = (dispatch) => () => {
 }
 
 
-export const sendMessage = () => (payload) => {
+export const sendMessage = (dispatch) => (payload) => {
     if (payload.message) {
-        // dispatch({
-        //     type: SET_SENDING_MESSAGE
-        // })
+        dispatch({
+            type: SET_SENDING_MESSAGE
+        })
         let newpayload = {
             ...payload,
             id: id(),
             date: new Date().toDateString(),
             time: new Date().toTimeString()
         };
-
-        socket.emit('send-message', newpayload);
+        socket.emit('send-message', newpayload, () => {
+            dispatch({
+                type: CREATE_MESSAGE,
+                payload: { message: '' }
+            })
+        });
     }
 }
 
@@ -93,7 +97,9 @@ export const receiveMessage = (dispatch) => () => {
     console.log('receiveMessage')
     socket.on('receive-message', (cbpayload) => {
         console.log('onreceiveMessage')
-
+        dispatch({
+            type: UNSET_SENDING_MESSAGE
+        })
         dispatch({
             type: RECEIVE_MESSAGE,
             payload: cbpayload

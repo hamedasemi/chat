@@ -6,8 +6,8 @@
         "firebase": "firebase",
         "webpack": "webpack",
         "webpack-dev-server": "webpack-dev-server",
-        "start": "webpack-dev-server --mode development --hot",
-        "build": "webpack --mode production"
+        "start": "webpack-dev-server --mode=development --devtool=source-map --hot",
+        "build": "webpack --mode=production"
     },
     "devDependencies": {
         "@babel/core": "^7.9.6",

@@ -8,8 +8,7 @@ const Send = () => {
     const { sendMessage, message, sendingMessage, person, receiveMessage } = useContext(MessengerContext);
 
     const clickHandler = () => {
-        sendMessage({...message});
-        
+        sendMessage(message);
     }
 
     useEffect(()=>{

@@ -3,4 +3,16 @@
     font-size: 18px;
     color: white;
     background: #1F1F1F;
+    border-radius: 18px;
 }
+
+body {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+

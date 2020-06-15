@@ -20,7 +20,6 @@ export default {
             maxSize: 50000
         }
     },
-    // devtool: '#eval-source-map',
     module: {
         rules: [
             {
