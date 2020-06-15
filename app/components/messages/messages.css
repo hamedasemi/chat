@@ -54,6 +54,8 @@
     padding: 10px;
     border-radius: 4px;
     flex-grow: 1;
+    line-height: 1.5;
+    word-break: break-word;
 }
 
 .messageTime {
