@@ -1,0 +1,84 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "name": "Svyatoslav Taushev",
+            "avatar": "svyatoslav-taushev"
+        },
+        {
+            "id": "2",
+            "name": "Miriam de Jesus",
+            "avatar": "Miriam-de-jesus"
+        },
+        {
+            "id": "3",
+            "name": "Ashley Graham",
+            "avatar": "ashley-graham"
+        },
+        {
+            "id": "4",
+            "name": "Chikanso Chima",
+            "avatar": "chikanso-chima"
+        },
+        {
+            "id": "5",
+            "name": "Regina Pollastro",
+            "avatar": "regina-pollastro"
+        },
+        {
+            "id": "6",
+            "name": "Dusana Semenov",
+            "avatar": "dusana-semenov"
+        },
+        {
+            "id": "7",
+            "name": "Neeshaan El Pasha",
+            "avatar": "neeshaan-el-pasha"
+        },
+        {
+            "id": "8",
+            "name": "Maazina El Bacchus",
+            "avatar": "maazina-el-bacchus"
+        },
+        {
+            "id": "9",
+            "name": "Mok Kwang-Hyun",
+            "avatar": "mok-kwang-hyun"
+        },
+        {
+            "id": "10",
+            "name": "Chakrika Joyanto",
+            "avatar": "chakrikajoyanto"
+        },
+        {
+            "id": "11",
+            "name": "Frank Boehm",
+            "avatar": "frank-boehm"
+        },
+        {
+            "id": "12",
+            "name": "Mathijn Agter",
+            "avatar": "mathijn-agter"
+        },
+        {
+            "id": "13",
+            "name": "Tatiana Gagelman",
+            "avatar": "tatiana-gagelman"
+        },
+        {
+            "id": "14",
+            "name": "Peter Taylor",
+            "avatar": "peter-taylor"
+        },
+        {
+            "id": "15",
+            "name": "Farhad Tarokh",
+            "avatar": "farhad-tarokh"
+        },
+        {
+            "id": "16",
+            "name": "Grigoriy Kozhukhov",
+            "avatar": "grigoriy-kozhukhov"
+        }
+    ]
+}

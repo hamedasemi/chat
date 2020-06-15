@@ -5,17 +5,17 @@ import styles from './input.css';
 import MessengerContext from '../messenger/context';
 
 const Input = () => {
-    const { createMessage, message, name } = useContext(MessengerContext);
+    const { createMessage, message, person } = useContext(MessengerContext);
 
     const changeHandler = (event) => {
         createMessage({
             message: event.target.value,
-            name: name
+            person: person
         })
     }
 
     return (
-        <div className={name ? styles.input : styles.inputNone}>
+        <div className={person.name ? styles.input : styles.inputNone}>
             <input placeholder="Message" value={message.message} onChange={changeHandler} />
         </div>
 

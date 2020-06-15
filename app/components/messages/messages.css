@@ -1,6 +1,44 @@
 .messages {
+    display: grid;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .messagesNone {
     display: none;
+}
+
+@keyframes translateFromRight {
+    from{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes translateFromLeft {
+    from{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+.message {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+.start {
+    justify-self: start;
+    animation: translateFromLeft .5s;
+}
+
+.end {
+    justify-self: end;
+    animation: translateFromRight .5s;
+}
+
+.avatar {
+    width: 50px;
 }

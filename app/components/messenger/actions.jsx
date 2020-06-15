@@ -2,6 +2,7 @@ import io from 'socket.io-client';
 
 import {
     CREATE_NAME,
+    SET_PERSON,
     SET_NAME,
     RECEIVE_MESSAGE,
     CREATE_MESSAGE,
@@ -41,6 +42,13 @@ const id = () => {
 export const createName = (dispatch) => (payload) => {
     dispatch({
         type: CREATE_NAME,
+        payload: payload
+    })
+}
+
+export const setPerson = (dispatch) => (payload) => {
+    dispatch({
+        type: SET_PERSON,
         payload: payload
     })
 }

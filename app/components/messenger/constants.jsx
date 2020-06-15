@@ -1,3 +1,5 @@
+export const SET_PERSON = 'SET_PERSON';
+
 export const SET_NAME = 'SET_NAME';
 export const CREATE_NAME = 'CREATE_NAME';
 
