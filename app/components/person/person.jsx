@@ -11,7 +11,7 @@ const Person = ({ person }) => {
     }
 
     return <div onClick={clickHandler} className={styles.person}>
-        <img src={`/assets/avatars/${person.avatar}.png`} alt="" />
+        <img className={styles.image} src={`/assets/avatars/${person.avatar}.png`} alt="" />
         <div>{person.name}</div>
     </div>
 }

@@ -1,7 +1,9 @@
 .persons {
     display: grid;
-    grid-template-columns: max-content max-content max-content max-content;
+    grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: max-content max-content max-content max-content;
+    width: 400px;
+    height: 700px;
 }
 
 .personsNone {

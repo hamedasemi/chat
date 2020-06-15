@@ -1,6 +1,41 @@
 .input {
+    display: flex;
 }
 
 .inputNone {
     display: none;
+}
+
+.sendNone {
+    display: none;
+}
+
+.sending {
+    display: none;
+}
+
+.inputText {
+    flex-grow: 1;
+    outline: none;
+    border: 4px solid #1F1F1F;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 20px;
+    border-bottom-left-radius: 18px;
+    color: #1F1F1F;
+    background: white;
+}
+
+.button {
+    background: white;
+    outline: none;
+    border: 4px solid #1F1F1F;
+    border-left: none;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 20px;
+    border-bottom-right-radius: 18px;
+    text-transform: uppercase;
+    color: #1F1F1F;
+    font-weight: bold;
 }

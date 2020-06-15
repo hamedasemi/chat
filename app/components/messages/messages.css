@@ -27,9 +27,10 @@
 }
 
 .message {
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    width: 100%;
 }
 
 .start {
@@ -49,4 +50,13 @@
 
 .messageText {
     margin: 10px;
+    background: #2d2d2d;
+    padding: 10px;
+    border-radius: 4px;
+    flex-grow: 1;
+}
+
+.messageTime {
+    margin: 10px;
+    font-size: 12px;
 }
