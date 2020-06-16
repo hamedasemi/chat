@@ -1,6 +1,6 @@
 import React, { useReducer, useMemo } from 'react';
 
-import { sendMessage, receiveMessage, createMessage, createName, setName, setPerson } from './actions';
+import { sendMessage, receiveMessage, createMessage, setPerson, onTyping, receiveTyping } from './actions';
 import { reducer } from './reducer';
 import MessengerContext from './context';
 
@@ -25,6 +25,7 @@ const persons = [
 
 export const Messenger = (props) => {
     const [state, dispatch] = useReducer(reducer, {
+        typing: { id: '', name: '', avatar: '' },
         persons: persons,
         person: { id: '', name: '', avatar: '' },
         name: '',
@@ -41,9 +42,10 @@ export const Messenger = (props) => {
             persons: state.persons,
             person: state.person,
             sendingMessage: state.sendingMessage,
-            setName: setName(dispatch),
+            typing: state.typing,
+            receiveTyping: receiveTyping(dispatch),
+            onTyping: onTyping(dispatch),
             setPerson: setPerson(dispatch),
-            createName: createName(dispatch),
             createMessage: createMessage(dispatch),
             sendMessage: sendMessage(dispatch),
             receiveMessage: receiveMessage(dispatch)

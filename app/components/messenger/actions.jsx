@@ -1,13 +1,12 @@
 import io from 'socket.io-client';
 
 import {
-    CREATE_NAME,
     SET_PERSON,
-    SET_NAME,
     RECEIVE_MESSAGE,
     CREATE_MESSAGE,
     SET_SENDING_MESSAGE,
-    UNSET_SENDING_MESSAGE
+    UNSET_SENDING_MESSAGE,
+    TYPING
 } from './constants';
 
 let serverPath;
@@ -39,23 +38,9 @@ const id = () => {
     return btoa(new Date().valueOf() + Math.random().toString(36).substr(2, 10));
 }
 
-export const createName = (dispatch) => (payload) => {
-    dispatch({
-        type: CREATE_NAME,
-        payload: payload
-    })
-}
-
 export const setPerson = (dispatch) => (payload) => {
     dispatch({
         type: SET_PERSON,
-        payload: payload
-    })
-}
-
-export const setName = (dispatch) => (payload) => {
-    dispatch({
-        type: SET_NAME,
         payload: payload
     })
 }
@@ -105,9 +90,24 @@ export const receiveMessage = (dispatch) => () => {
     });
 }
 
+export const receiveTyping = (dispatch) => () => {
+    socket.on('typing', (payload) => {
+        dispatch({
+            type: TYPING,
+            payload: payload
+        })
+    });
+}
+
 export const createMessage = (dispatch) => (payload) => {
     dispatch({
         type: CREATE_MESSAGE,
         payload: payload
     })
+}
+
+export const onTyping = () => (payload) => {
+    socket.emit('typing', payload, () => {
+
+    });
 }

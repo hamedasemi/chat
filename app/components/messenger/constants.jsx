@@ -1,7 +1,8 @@
-export const SET_PERSON = 'SET_PERSON';
+export const TYPING = 'TYPING';
+export const SET_TYPING = 'SET_TYPING';
+export const RESET_TYPING = 'RESET_TYPING';
 
-export const SET_NAME = 'SET_NAME';
-export const CREATE_NAME = 'CREATE_NAME';
+export const SET_PERSON = 'SET_PERSON';
 
 export const CREATE_MESSAGE = 'CREATE_MESSAGE';
 export const SEND_MESSAGE = 'SEND_MESSAGE';

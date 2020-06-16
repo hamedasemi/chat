@@ -7,7 +7,7 @@ import Messenger from './components/messenger/messenger';
 import Messages from './components/messages/messages';
 import Input from './components/input/input';
 import Persons from './components/persons/persons';
-import Greeting from './components/greeting/greeting';
+import Typing from './components/typing/typing';
 
 const App = () => {
     return (
@@ -15,8 +15,8 @@ const App = () => {
             {/* <a href={window.location.origin} target='blank'>New</a> */}
             <Messenger>
                 <Persons></Persons>
-                {/* <Greeting></Greeting> */}
                 <Messages></Messages>
+                <Typing></Typing>
                 <Input></Input>
             </Messenger>
         </div>

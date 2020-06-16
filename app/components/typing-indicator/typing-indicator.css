@@ -1,0 +1,39 @@
+@keyframes blink {
+    from {
+        opacity: 0;
+    }
+}
+
+.typingIndicator {
+    width: 70px;
+    height: 30px;
+    background: #2d2d2d;
+    border-radius: 18px;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.typingIndication {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    background: dimgray;
+    border-radius: 50%;
+    animation: blink .7s infinite alternate;
+}
+
+.typingIndication:nth-of-type(1) {
+    margin-left: 5px;
+}
+
+.typingIndication:nth-of-type(2) {
+    animation-delay: .3s;
+}
+
+.typingIndication:nth-of-type(3) {
+    animation-delay: .7s;
+}

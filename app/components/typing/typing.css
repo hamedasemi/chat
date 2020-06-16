@@ -1,0 +1,15 @@
+.typing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.typingNone {
+    display: none;
+}
+
+
+.avatar {
+    width: 50px;
+    margin: 20px;
+}
