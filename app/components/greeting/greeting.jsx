@@ -5,11 +5,11 @@ import styles from './greeting.css';
 import MessengerContext from '../messenger/context';
 
 const Greeting = () => {
-    const { name } = useContext(MessengerContext);
+    const { person } = useContext(MessengerContext);
 
     return (
-        <div className={name ? styles.greeting : styles.greetingNone}>
-            <h1>Welcome {name}</h1>
+        <div className={person.name ? styles.greeting : styles.greetingNone}>
+            <h1>Welcome {person.name}</h1>
         </div>
     );
 }

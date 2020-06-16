@@ -4,8 +4,6 @@ import { sendMessage, receiveMessage, createMessage, createName, setName, setPer
 import { reducer } from './reducer';
 import MessengerContext from './context';
 
-const messages = [];
-
 const persons = [
     { id: 'svyatoslav-taushev', name: 'Svyatoslav Taushev', avatar: 'svyatoslav-taushev' },
     { id: 'Miriam-de-jesus', name: 'Miriam de Jesus', avatar: 'Miriam-de-jesus' },
@@ -23,13 +21,14 @@ const persons = [
     { id: 'peter-taylor', name: 'Peter Taylor', avatar: 'peter-taylor' },
     { id: 'farhad-tarokh', name: 'Farhad Tarokh', avatar: 'farhad-tarokh' },
     { id: 'grigoriy-kozhukhov', name: 'Grigoriy Kozhukhov', avatar: 'grigoriy-kozhukhov' }
-]
+];
+
 export const Messenger = (props) => {
     const [state, dispatch] = useReducer(reducer, {
         persons: persons,
         person: { id: '', name: '', avatar: '' },
         name: '',
-        messages: messages,
+        messages: [],
         message: { message: '', id: null, date: null, time: null, name: '', person: { id: '', name: '', avatar: '' } },
         sendingMessage: false
     });

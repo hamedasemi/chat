@@ -12,9 +12,10 @@ import Greeting from './components/greeting/greeting';
 const App = () => {
     return (
         <div className={style.app}>
+            {/* <a href={window.location.origin} target='blank'>New</a> */}
             <Messenger>
                 <Persons></Persons>
-                <Greeting></Greeting>
+                {/* <Greeting></Greeting> */}
                 <Messages></Messages>
                 <Input></Input>
             </Messenger>
