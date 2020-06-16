@@ -3,6 +3,8 @@ import { resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
+import autoprefixer from 'autoprefixer';
+
 export default {
     entry: {
         app: './app/app.jsx'
@@ -40,6 +42,15 @@ export default {
                             modules: {
                                 localIdentName: '[path][name]__[local]--[hash:base64:5]'
                             },
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true,
+                            plugins: [
+                                autoprefixer({}),
+                            ]
                         }
                     }
                 ]

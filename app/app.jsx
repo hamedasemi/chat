@@ -24,3 +24,4 @@ const App = () => {
 }
 
 ReactDOM.render(<App></App>, document.getElementById('root'));
+ReactDOM.render(<App></App>, document.getElementById('root2'));
