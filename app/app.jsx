@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
 import style from './app.css'
 
@@ -12,7 +12,6 @@ import Typing from './components/typing/typing';
 const App = () => {
     return (
         <div className={style.app}>
-            {/* <a href={window.location.origin} target='blank'>New</a> */}
             <Messenger>
                 <Persons></Persons>
                 <Messages></Messages>
@@ -23,5 +22,5 @@ const App = () => {
     )
 }
 
-ReactDOM.render(<App></App>, document.getElementById('root'));
-ReactDOM.render(<App></App>, document.getElementById('root2'));
+render(<App></App>, document.getElementById('root'));
+render(<App></App>, document.getElementById('root2'));
